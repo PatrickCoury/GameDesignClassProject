@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +20,14 @@ public class Player : MonoBehaviour
         {
             currentHP--;
         }
+        if (currentHP <= 0)
+        {
+            gameOver();
+        }
+    }
+    void gameOver()
+    {
+        SceneManager.LoadScene("Test_Battle", LoadSceneMode.Single);
     }
 
     //getters and setters
@@ -29,6 +38,10 @@ public class Player : MonoBehaviour
     public int getSpecStat(string key)
     {
         return stats.getDict(key);
+    }
+    public string getName()
+    {
+        return stats.getName();
     }
     public int getCurrentHP()
     {
