@@ -7,7 +7,7 @@ public class BattleHandler : MonoBehaviour
     [SerializeField] public GameObject pfPlayer;
     [SerializeField] public GameObject pfEnemy;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         SpawnCharacter(pfPlayer);
         SpawnCharacter(pfEnemy);

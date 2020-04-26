@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy1 : MonoBehaviour
 {
-    Stats stats = new Stats("Enemy", new int[] { 5, 1, 1, 1, 1, 1, 0, 0 });
+    Stats stats = new Stats(new int[] { 5, 1, 1, 1, 1, 1, 0, 0 });
     // Start is called before the first frame update
     void Start()
     {

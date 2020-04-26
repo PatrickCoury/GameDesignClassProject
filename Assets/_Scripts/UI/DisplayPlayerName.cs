@@ -9,7 +9,7 @@ public class DisplayPlayerName : MonoBehaviour
     [SerializeField] public TextMeshProUGUI playerName;
     void Start()
     {
-        playerName.text = player.GetComponent<Player>().getName()+":";
+        playerName.text = player.GetComponent<Player>().getCharacter().getName();
     }
 
 }

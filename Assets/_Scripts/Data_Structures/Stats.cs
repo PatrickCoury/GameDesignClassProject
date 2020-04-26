@@ -6,15 +6,13 @@ public class Stats
 {
     private Dictionary<string, int> dict = new Dictionary<string, int>(); //variable holding the stats of object
     private Affinity affinity;
-    private string name;
 
-    public Stats(string name, int[] stats)
+    public Stats(int[] stats)
     {
 
-        this.name = name;
         if (stats.Length != 8)//check that array is correct
         {
-            Debug.Log(name + "'s stats have not been initialized");
+            Debug.Log("stats have not been initialized");
         }
         else
         {
@@ -38,17 +36,13 @@ public class Stats
         }
     }
     //getters and setters
-    public int getDict(string key)
+    public int getSpecStat(string key)
     {
         return dict[key];
     }
     public Affinity getAffinity()
     {
         return affinity;
-    }
-    public string getName()
-    {
-        return name;
     }
     public void setDict(string key, int value)
     {
@@ -57,10 +51,6 @@ public class Stats
     public void setAffinity(int id)
     {
         affinity = new Affinity(id);
-    }
-    public void setName(string name)
-    {
-        this.name = name;
     }
     public override string ToString()
     {

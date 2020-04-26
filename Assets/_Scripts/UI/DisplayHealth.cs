@@ -6,7 +6,7 @@ using TMPro;
 
 public class DisplayHealth : MonoBehaviour
 {
-    private Player player;
+    private Character player;
     public TextMeshProUGUI healthText;
     void Start()
     {
@@ -14,7 +14,7 @@ public class DisplayHealth : MonoBehaviour
     }
     void Update()
     {
-        player = GameObject.Find("Player(Clone)").GetComponent<Player>();
-        healthText.text = "HP: " + player.currentHP+"/"+player.getSpecStat("HP");
+        player = GameObject.Find("Player(Clone)").GetComponent<Player>().getCharacter();
+        healthText.text = player.getCurrentHP()+"/"+player.getSpecStat("HP");
     }
 }

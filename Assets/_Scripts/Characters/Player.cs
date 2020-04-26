@@ -5,50 +5,50 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    private Stats stats = new Stats("Player", new int[] { 10, 3, 2, 3, 2, 3, 0, 0}); //gives name to player and list of starting stats
-    public int currentHP;
-    // Start is called before the first frame update
+    private Character character = new Character(new int[] { 10, 3, 2, 3, 2, 3, 0, 0 }, "Player", true);
+    private int bullets = 3;
+    private bool incap = false;
+    private bool ready = false;
     void Start()
     {
-        currentHP = this.getSpecStat("HP");
+        
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            currentHP--;
+            int HP = character.getCurrentHP();
+            character.setCurrentHP(HP - 1);
+            if (HP <= 0)
+            {
+                incap = true;
+            }
         }
-        if (currentHP <= 0)
-        {
-            gameOver();
-        }
-    }
-    void gameOver()
-    {
-        SceneManager.LoadScene("Test_Battle", LoadSceneMode.Single);
     }
 
     //getters and setters
-    public Stats getStats()
+    public Character getCharacter()
     {
-        return stats;
+        return character;
     }
-    public int getSpecStat(string key)
+    public void setCharacter(Character character)
     {
-        return stats.getDict(key);
+        this.character = character;
     }
-    public string getName()
+    public bool getReady()
     {
-        return stats.getName();
+        return ready;
     }
-    public int getCurrentHP()
+    public void setReady(bool ready)
     {
-        return currentHP;
+        this.ready = ready;
     }
-    public void setStats(Stats stats)
+    public int getBullets()
     {
-        this.stats = stats;
+        return bullets;
+    }
+    public void setBullets(int bullets)
+    {
+        this.bullets = bullets;
     }
 }
